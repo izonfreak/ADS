@@ -8,7 +8,7 @@
 #if defined(USE_TWINCAT_ROUTER)
 #include "TwinCAT/AdsDef.h"
 #else
-#include "standalone/AdsDef.h"
+#include "Standalone/AdsDef.h"
 #endif
 
 #include <iosfwd>

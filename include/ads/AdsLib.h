@@ -8,10 +8,10 @@
 #if defined(USE_TWINCAT_ROUTER)
 #include "TwinCAT/AdsLib.h"
 #else
-#include "standalone/AdsLib.h"
+#include "Standalone/AdsLib.h"
 #endif
 
-#include "Sockets.h"
+//#include "../../AdsLib/Sockets.h"
 
 #ifdef BHF_ADS_EXPORT_C
 extern "C" {
@@ -156,19 +156,19 @@ namespace ads
  * @param[in] ip address of the target system
  * @return [ADS Return Code](https://infosys.beckhoff.com/content/1031/tcadscommon/html/ads_returncodes.htm?id=1666172286265530469)
  */
-long AddLocalRoute(AmsNetId ams, const char *ip);
+ long AddLocalRoute(AmsNetId ams, const char *ip);
 
 /**
  * Delete ams route that had previously been added with AddLocalRoute().
  * @param[in] ams address of the target system
  */
-void DelLocalRoute(AmsNetId ams);
+ void DelLocalRoute(AmsNetId ams);
 
 /**
- * Change local NetId
+ * Change local N etId
  * @param[in] ams local AmsNetId
  */
-void SetLocalAddress(AmsNetId ams);
+ void SetLocalAddress(AmsNetId ams);
 
 /**
  * Add an ADS route to a remote TwinCAT system
@@ -180,7 +180,7 @@ void SetLocalAddress(AmsNetId ams);
  * @param[in] remotePassword password for the user on the remote TwinCAT system
  * @return [ADS Return Code](https://infosys.beckhoff.com/content/1031/tcadscommon/html/ads_returncodes.htm?id=1666172286265530469)
  */
-long AddRemoteRoute(const std::string &remote, AmsNetId destNetId,
+ long AddRemoteRoute(const std::string &remote, AmsNetId destNetId,
 		    const std::string &destAddr, const std::string &routeName,
 		    const std::string &remoteUsername,
 		    const std::string &remotePassword);
@@ -191,6 +191,6 @@ long AddRemoteRoute(const std::string &remote, AmsNetId destNetId,
  * @param[out] netId on success the AmsNetId of the remote TwinCAT system is written here
  * @return [ADS Return Code](https://infosys.beckhoff.com/content/1031/tcadscommon/html/ads_returncodes.htm?id=1666172286265530469)
  */
-long GetRemoteAddress(const std::string &remote, AmsNetId &netId);
+ long GetRemoteAddress(const std::string &remote, AmsNetId &netId);
 }
 }

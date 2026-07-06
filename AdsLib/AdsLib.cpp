@@ -4,6 +4,8 @@
  */
 
 #include "AdsLib.h"
+#include "Sockets.h"
+#include "Frame.h"
 #include "Log.h"
 #include "wrap_endian.h"
 #include <cstring>

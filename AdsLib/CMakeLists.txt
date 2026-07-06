@@ -15,11 +15,9 @@ set(LIB_SOURCES
         SymbolAccess.cpp
 )
 set(LIB_HEADERS
-        AdsDef.h
         AdsDevice.h
         AdsException.h
         AdsFile.h
-        AdsLib.h
         AdsNotification.h
         AdsNotificationOOI.h
         AdsVariable.h
@@ -58,10 +56,6 @@ set(BHF_HEADERS
 set(TWINCAT_SOURCES
         TwinCAT/AdsLib.cpp
 )
-set(TWINCAT_HEADERS
-        TwinCAT/AdsDef.h
-        TwinCAT/AdsLib.h
-)
 
 set(STANDALONE_SOURCES
         standalone/AdsLib.cpp
@@ -71,10 +65,6 @@ set(STANDALONE_SOURCES
         standalone/AmsRouter.cpp
         standalone/NotificationDispatcher.cpp
 )
-set(STANDALONE_HEADERS
-        standalone/AdsDef.h
-        standalone/AdsLib.h
-)
 
 # Create the standalone variant
 add_library(AdsLib)
@@ -83,15 +73,10 @@ target_sources(AdsLib PRIVATE
         ${LIB_SOURCES}
         ${BHF_SOURCES}
 )
-target_sources(AdsLib PUBLIC
-        FILE_SET HEADERS
-        FILES
-        ${LIB_HEADERS}
-        ${BHF_HEADERS}
-        ${STANDALONE_HEADERS}
-)
+
 target_include_directories(AdsLib PUBLIC
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
+        $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/include/ads>
         $<INSTALL_INTERFACE:include/ads>
 )
 
@@ -126,15 +111,10 @@ if (TcAdsDll_FOUND AND NOT ONLY_STANDALONE)
             ${LIB_SOURCES}
             ${BHF_SOURCES}
     )
-    target_sources(TcAdsLib PUBLIC
-            FILE_SET HEADERS
-            FILES
-            ${LIB_HEADERS}
-            ${BHF_HEADERS}
-            ${TWINCAT_HEADERS}
-    )
+
     target_include_directories(TcAdsLib PUBLIC
             $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
+            $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/include/ads>
             $<INSTALL_INTERFACE:include/ads>
     )
 

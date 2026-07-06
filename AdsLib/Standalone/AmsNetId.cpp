@@ -3,7 +3,7 @@
    Copyright (c) 2020 - 2022 Beckhoff Automation GmbH & Co. KG
  */
 
-#include "AdsDef.h"
+#include "Standalone/AdsDef.h"
 #include <string.h>
 #include <sstream>
 

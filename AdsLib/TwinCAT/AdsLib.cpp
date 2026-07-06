@@ -3,7 +3,7 @@
    Copyright (c) 2020 - 2022 Beckhoff Automation GmbH & Co. KG
  */
 
-#include "AdsLib.h"
+#include "TwinCAT/AdsLib.h"
 
 namespace bhf
 {
